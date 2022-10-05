@@ -1,3 +1,205 @@
-body p {
-    color: lightblue;
+
+@font-face {
+  font-family: 'Dangrek';
+  src: url("fonts/DangrekRegular.ttf");
 }
+@font-face {
+  
+  font-family: 'Neuton';
+  src: url("fonts/Neuton.ttf");
+}
+@font-face {
+  
+  font-family: 'Roboto Regular';
+  src: url("fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  
+  font-family: 'Bree Serif';
+  src: url("fonts/BreeSerifRegular.ttf");
+}
+
+@font-face {
+  
+  font-family: 'Poppins';
+  src: url("fonts/Poppins-Regular.ttf");
+}
+
+
+
+body {
+    margin: 0;
+    background-image: url("bg.png")
+  }
+
+
+#create-note {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    padding: 20px;
+    gap: 20px;
+  }
+  
+#add-note {
+    height: 200px;
+    box-sizing: border-box;
+    padding: 6px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+    resize: none;
+    font-family: sans-serif;
+    font-size: 76px;
+    color: rgb(174, 150, 137);
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+
+.note {
+    position: relative;
+    min-height: 200px;
+    box-sizing: border-box;
+    padding: 17px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+    /* resize: none; */
+    color: rgb(174, 150, 137);
+    background-color: #f0f0f0;
+  }
+
+.note h1 {
+  margin:0;
+  padding: 0;
+  font-size: 20px;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  font-weight: bold;
+  clear: both;
+  line-height: 1.1;
+  width: 90%;
+}
+
+.editing-buttons {
+  text-align: end;
+  float: right;
+  position: absolute;
+  top:6%;
+  left: 65;
+  right: 5%;
+}
+
+.editing-buttons a {
+  text-decoration: none;
+  font-size: 15px;
+  color:rgb(174, 150, 137);
+}
+
+#trash-icon:hover {
+  color:red;
+}
+
+.note p {
+  color: #333;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  margin: 0;
+}
+
+.note hr {
+    border: none;
+    height: 0.8px;
+    width: 100%;
+    background-color: rgb(174, 150, 137);
+}
+
+#add-note:hover {
+    background-color: rgb(174, 150, 137);
+    opacity: 0.6;
+    color: #f0f0f0;
+  }
+
+.popup-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 55vh;
+    background-color: #f0f0f0;
+    padding: 3rem;
+    border-radius: 5px;
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(7px);
+    z-index: 5;
+  }
+
+  .hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  #close-btn {
+    position: absolute;
+    top: 2%;
+    right: 4%;
+    font-size: 43px;
+    color: rgb(174, 150, 137);
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+ 
+
+  #title-box, #note-content {
+    border-radius: 5px;
+    border: 1px solid rgb(174, 150, 137);
+    color: #7b7b7b;
+    font-family: 'Neuton', Helvetica, sans-serif;
+    font-size: 20px;
+    
+  }
+
+  #title-box {
+    width: 96%;
+    height: 12%;
+  }
+
+  #note-content {
+    width: 96%;
+    height: 50%;
+    resize: none;
+  }
+
+  #title, #description {
+    font-family: 'Dangrek', Helvetica, sans-serif;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    color: rgb(174, 150, 137);
+  }
+
+  #add-note-button {
+    position: absolute;
+    font-family: 'Dangrek', Helvetica, sans-serif;
+    background-color: rgb(174, 150, 137);
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgb(174, 150, 137);
+    padding: 2% 10% 2% 10%;
+    margin: 5% 0 0 47%;
+    
+  }
+
+  #add-note-button:hover {
+    color: rgb(174, 150, 137);
+    background-color: white;
+  }

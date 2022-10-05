@@ -13,3 +13,7 @@ app.use(express.static('website'));
 // setting up the server
 const port = 3000;
 app.listen(port, ()=>{console.log(`server is up and running on localhost: ${port}`)});
+
+app.post('/new-note', function(req,res) {
+    users.
+})
