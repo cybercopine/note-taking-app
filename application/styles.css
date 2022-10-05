@@ -1,8 +1,3 @@
-
-@font-face {
-  font-family: 'Dangrek';
-  src: url("fonts/DangrekRegular.ttf");
-}
 @font-face {
   
   font-family: 'Neuton';
@@ -12,11 +7,6 @@
   
   font-family: 'Roboto Regular';
   src: url("fonts/Roboto-Regular.ttf");
-}
-@font-face {
-  
-  font-family: 'Bree Serif';
-  src: url("fonts/BreeSerifRegular.ttf");
 }
 
 @font-face {
@@ -33,7 +23,7 @@ body {
   }
 
 
-#create-note {
+#notes-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     padding: 20px;
@@ -77,6 +67,21 @@ body {
   clear: both;
   line-height: 1.1;
   width: 90%;
+  word-break: break-all;
+}
+
+.note p {
+  color: #333;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  margin: 0;
+  word-break: break-all;
+}
+
+.note hr {
+    border: none;
+    height: 0.8px;
+    width: 100%;
+    background-color: rgb(174, 150, 137);
 }
 
 .editing-buttons {
@@ -94,21 +99,8 @@ body {
   color:rgb(174, 150, 137);
 }
 
-#trash-icon:hover {
+#delete-icon:hover {
   color:red;
-}
-
-.note p {
-  color: #333;
-  font-family: 'Poppins', Helvetica, sans-serif;
-  margin: 0;
-}
-
-.note hr {
-    border: none;
-    height: 0.8px;
-    width: 100%;
-    background-color: rgb(174, 150, 137);
 }
 
 #add-note:hover {
@@ -180,16 +172,16 @@ body {
   }
 
   #title, #description {
-    font-family: 'Dangrek', Helvetica, sans-serif;
+    font-family: 'Poppins', Helvetica, sans-serif;
     font-size: 30px;
     padding: 0;
     margin: 0;
     color: rgb(174, 150, 137);
   }
 
-  #add-note-button {
+  #add-note-btn {
     position: absolute;
-    font-family: 'Dangrek', Helvetica, sans-serif;
+    font-family: 'Poppins', Helvetica, sans-serif;
     background-color: rgb(174, 150, 137);
     text-decoration: none;
     color: white;
@@ -199,7 +191,7 @@ body {
     
   }
 
-  #add-note-button:hover {
+  #add-note-btn:hover {
     color: rgb(174, 150, 137);
     background-color: white;
   }

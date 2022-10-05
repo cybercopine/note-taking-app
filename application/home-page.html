@@ -7,43 +7,22 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div id="create-note">
-        <button id="add-note" type="button">+</button>
-        <div class="note">
-          <h1></h1> 
-          <div class="editing-buttons fa-stack fa-1x">
-            <a href="#">
-              <i class="fa-solid fa-pen"></i>
-            </a>
-            <a href="#">
-              <i id="trash-icon" class="fa-solid fa-trash-can"></i>
-            </a>
-          </div>
-          <hr>
-          <p></p>
-        </div>
-    </div>
-        <!-- popup when clicking on the + button -->
-        <div class="popup-box hidden">
-          <button id="close-btn">&times;</button>
-          <label id="title">
-            Title
-            <input id="title-box" type="text" name="text"/>
-          </label>
-          <label id="description">
-            Description
-            <textarea id="note-content" name="description-text"></textarea>
-          </label>
-          <a id="add-note-button" href="#">add</a>
-          
-
-        </div>
-       
-      <div class="overlay hidden"></div>
-    <script src="app.js"></script>
-</body>
-
-
+  <div class="popup-box hidden">
+    <button id="close-btn">&times;</button>
+    <label id="title">
+      Title
+      <input id="title-box" type="text" name="text"/>
+    </label>
+    <label id="description">
+      Description
+      <textarea id="note-content" name="description-text"></textarea>
+    </label>
+    <a id="add-note-btn" href="#">add</a>
+  </div>
+  <div class="overlay hidden"></div>
+  <div id="notes-container">
+    <button id="add-note" type="button">+</button>
+  </div>
+<script src="app.js"></script>
 </body>
 </html>
