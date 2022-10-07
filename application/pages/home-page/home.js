@@ -31,7 +31,10 @@ document.addEventListener('keydown', function (escBtn) {
     }
   });
 
-//function editHandler(){};
+function editNoteHandler(id){
+  openWindow();
+  addNoteBtn.textContent = 'Edit';
+};
 
 function deleteNoteHandler(id) {
     let confirmDelete = confirm("Are you sure you want to delete?");
@@ -41,6 +44,7 @@ function deleteNoteHandler(id) {
     
 };
 
+
 // function that creates the new note.
 function createNote() {
   let id = nextNote;
@@ -48,7 +52,7 @@ function createNote() {
                   <h1>${popUpTitle.value}</h1> 
                   <div class="editing-buttons fa-stack fa-1x">
                     <a href="#">
-                      <i class="fa-solid fa-pen"></i>
+                      <i id="edit-icon-${nextNote}" class="fa-solid fa-pen"></i>
                     </a>
                     <a href="#">
                       <i id="delete-icon-${nextNote}" class="fa-solid fa-trash-can"></i>
@@ -63,6 +67,8 @@ function createNote() {
 
   const deleteNote = document.getElementById(`delete-icon-${nextNote}`);
   deleteNote.addEventListener('click', () => deleteNoteHandler(id))
+  const editNote = document.getElementById(`edit-icon-${nextNote}`);
+  editNote.addEventListener('click', () => editNoteHandler(id));
 
   nextNote++;
 }

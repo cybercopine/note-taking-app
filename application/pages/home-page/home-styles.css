@@ -1,31 +1,13 @@
-@font-face {
-  
-  font-family: 'Neuton';
-  src: url("fonts/Neuton.ttf");
-}
-@font-face {
-  
-  font-family: 'Roboto Regular';
-  src: url("fonts/Roboto-Regular.ttf");
-}
-
-@font-face {
-  
-  font-family: 'Poppins';
-  src: url("fonts/Poppins-Regular.ttf");
-}
-
-
-
 body {
     margin: 0;
-    background-image: url("bg.png")
+    background-image: url("background.png")
   }
 
-
+/* ------------------------------------------HOME PAGE -----------------------*/
 #notes-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-columns: repeat(auto-fit, 300px);
+    align-items: flex-start;
     padding: 20px;
     gap: 20px;
   }
@@ -53,7 +35,6 @@ body {
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
-    /* resize: none; */
     color: rgb(174, 150, 137);
     background-color: #f0f0f0;
   }
@@ -62,19 +43,20 @@ body {
   margin:0;
   padding: 0;
   font-size: 20px;
-  font-family: 'Poppins', Helvetica, sans-serif;
   font-weight: bold;
   clear: both;
   line-height: 1.1;
   width: 90%;
-  word-break: break-all;
 }
 
 .note p {
   color: #333;
+  margin: 0; 
+}
+
+.note h1, .note p {
   font-family: 'Poppins', Helvetica, sans-serif;
-  margin: 0;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .note hr {
@@ -88,7 +70,7 @@ body {
   text-align: end;
   float: right;
   position: absolute;
-  top:6%;
+  top:5%;
   left: 65;
   right: 5%;
 }
