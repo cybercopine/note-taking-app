@@ -1,20 +1,26 @@
-const loginUsername = document.getElementById('login-username');
-
+import {postData, getData} from '../../global-functions.js';
 
 const email = document.getElementById('email');
-const password = document.getElementById('password');
-const loginBtn = document.getElementById('login-btn');
+const signUpUsername = document.getElementById('signup-username');
+const signUpPassword = document.getElementById('signup-password');
 const signUpBtn = document.getElementById('sign-up-btn');
+const loginUsername = document.getElementById('login-username');
+const loginPassword = document.getElementById('login-password');
+const loginBtn = document.getElementById('login-btn');
+
+function redirect() {
+    location.replace("../home-page/home-page.html", '_self');
+}
 
 
 function loginHandler() {
-console.log("Hello world");
+postData('http://localhost:8000/login', {
+    username: loginUsername.value,
+    password: loginPassword.value
+}, redirect)
 };
 
-function signUpHandler() {
-    location.replace("../home-page/home-page.html", '_self');
 
-}
 
-loginBtn.addEventListener('click', () => loginHandler(e));
+loginBtn.addEventListener('click', () => loginHandler());
 signUpBtn.addEventListener('click', () => signUpHandler());

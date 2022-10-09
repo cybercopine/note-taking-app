@@ -73,25 +73,11 @@ function createNote() {
   nextNote++;
 }
 
-let postData = async (url = '', data = {}) => {
-  const response = await fetch(url, {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-  });
+postData('http://localhost:8000/new-note', {
+  title : title.value,
+  description : description.value
 
-  try {
-      const allData = await response.json()
-      createNote();
-      
-  }
-  catch (error) {
-      console.log("error", error);
-  }
-}
+}, createNote);
 
 addNoteBtn.addEventListener('click', function() {
   if(!popUpTitle.value || !popUpContent.value) {
