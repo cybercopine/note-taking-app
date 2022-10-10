@@ -1,28 +1,42 @@
-let nextNote = 1;
+import {postData, getData} from '../../global-functions.js';
 
+let nextNote = 1;
 
 const newNoteBtn = document.querySelector('#add-note');
 const closeBtn = document.getElementById('close-btn');
-const addNoteBtn = document.getElementById('add-note-btn');
+const addNoteBtn = document.querySelector('.add-note-btn');
+const editNoteBtn = document.querySelector('.edit-note-btn');
 const popUp = document.querySelector('.popup-box');
 const popUpTitle = document.getElementById('title-box');
 const popUpContent = document.getElementById('note-content')
 const overlay = document.querySelector('.overlay');
 const notesContainer = document.getElementById('notes-container');
+const form = document.getElementById('entry-form');
+
+
+window.onload = function() {
+  getData('http://localhost:3000/my-notes', showNotes())
+}
+
+// function showNotes() {
+
+// } 
+function resetAll() {
+   popUpTitle.value = "";
+   popUpContent.value = "";
+   // form.reset();
+}
 
 function openWindow() {
     popUp.classList.remove('hidden');
     overlay.classList.remove('hidden');
 }
 
-newNoteBtn.addEventListener('click', openWindow)
-
 function closeWindow() {
     popUp.classList.add('hidden');
     overlay.classList.add('hidden');
-    popUpTitle.value = "";
-    popUpContent.value = "";
 }; 
+
 closeBtn.addEventListener('click', closeWindow)
 
 document.addEventListener('keydown', function (escBtn) {
@@ -33,7 +47,8 @@ document.addEventListener('keydown', function (escBtn) {
 
 function editNoteHandler(id){
   openWindow();
-  addNoteBtn.textContent = 'Edit';
+  addNoteBtn.classList.add('hidden');
+  editNoteBtn.classList.remove('hidden');
 };
 
 function deleteNoteHandler(id) {
@@ -73,17 +88,22 @@ function createNote() {
   nextNote++;
 }
 
-postData('http://localhost:8000/new-note', {
-  title : title.value,
-  description : description.value
-
-}, createNote);
+newNoteBtn.addEventListener('click', openWindow)
 
 addNoteBtn.addEventListener('click', function() {
   if(!popUpTitle.value || !popUpContent.value) {
     alert("Please enter a value for title and description");
     return;
   }
-  createNote();
+
+  postData('http://localhost:3000/new-note', {
+    title : title.value,
+    description : description.value
+  }, createNote);
   closeWindow();
 })
+
+// editNoteBtn.addEventListener('click', function() {
+
+// })
+

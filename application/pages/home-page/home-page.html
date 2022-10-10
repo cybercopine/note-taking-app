@@ -10,21 +10,26 @@
 <body>
   <div class="popup-box hidden">
     <button id="close-btn">&times;</button>
-    <label id="title">
-      Title
-      <input id="title-box" type="text" name="text"/>
-    </label>
-    <label id="description">
-      Description
-      <textarea id="note-content" name="description-text"></textarea>
-    </label>
-    <a id="add-note-btn" href="#">add</a>
+    <form id="entry-form">
+      <label id="title">
+        Title
+        <input id="title-box" type="text" name="text"/>
+      </label>
+      <label id="description">
+        Description
+        <textarea id="note-content" name="description-text"></textarea>
+      </label>
+      <a class="add-note-btn" href="#">add</a>
+    <a class="edit-note-btn hidden" href="#">edit</a>
+    </form>
+    
   </div>
+   
   <div class="overlay hidden"></div>
   <div id="notes-container">
     <button id="add-note" type="button">+</button>
   </div>
-<script src="home.js"></script>
+<script type="module" src="home.js"></script>
 </body>
 </html>
 

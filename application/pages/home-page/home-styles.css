@@ -131,6 +131,9 @@ body {
     background: none;
   }
 
+  #entry-form {
+    height: 100%;
+  }
  
 
   #title-box, #note-content {
@@ -144,7 +147,7 @@ body {
 
   #title-box {
     width: 96%;
-    height: 12%;
+    height: 10%;
   }
 
   #note-content {
@@ -161,7 +164,7 @@ body {
     color: rgb(174, 150, 137);
   }
 
-  #add-note-btn {
+  .add-note-btn, .edit-note-btn {
     position: absolute;
     font-family: 'Poppins', Helvetica, sans-serif;
     background-color: rgb(174, 150, 137);
@@ -177,3 +180,4 @@ body {
     color: rgb(174, 150, 137);
     background-color: white;
   }
+

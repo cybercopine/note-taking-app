@@ -46,6 +46,11 @@ body{
 	border-radius: 5px;
 	font-family: 'Poppins', sans-serif;
 }
+
+.fail {
+	border: 1px solid red;
+}
+
 #sign-up-btn, #login-btn{
 	width: 50%;
 	height: 20px;
