@@ -15,26 +15,22 @@ const form = document.getElementById('entry-form');
 
 
 window.onload = function() {
-  getData('http://localhost:3000/my-notes', showNotes())
-}
-
-// function showNotes() {
-
-// } 
-function resetAll() {
-   popUpTitle.value = "";
-   popUpContent.value = "";
-   // form.reset();
+  getData('http://localhost:3000/my-notes', (notes) => {
+    for(let i=0; i<notes.length; i++) {
+      createNote(notes[i].title, notes[i].description);
+    }
+  })
 }
 
 function openWindow() {
-    popUp.classList.remove('hidden');
-    overlay.classList.remove('hidden');
+  popUp.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+  form.reset();
 }
 
 function closeWindow() {
-    popUp.classList.add('hidden');
-    overlay.classList.add('hidden');
+  popUp.classList.add('hidden');
+  overlay.classList.add('hidden');
 }; 
 
 closeBtn.addEventListener('click', closeWindow)
@@ -59,12 +55,11 @@ function deleteNoteHandler(id) {
     
 };
 
-
 // function that creates the new note.
-function createNote() {
+function createNote(title, content) {
   let id = nextNote;
   let newNote = `<div class="note" id="${nextNote}">
-                  <h1>${popUpTitle.value}</h1> 
+                  <h1>${title}</h1> 
                   <div class="editing-buttons fa-stack fa-1x">
                     <a href="#">
                       <i id="edit-icon-${nextNote}" class="fa-solid fa-pen"></i>
@@ -74,7 +69,7 @@ function createNote() {
                     </a>
                   </div>
                   <hr>
-                  <p>${popUpContent.value}</p>
+                  <p>${content}</p>
                 </div>
               </div>`
   
@@ -97,9 +92,9 @@ addNoteBtn.addEventListener('click', function() {
   }
 
   postData('http://localhost:3000/new-note', {
-    title : title.value,
-    description : description.value
-  }, createNote);
+    title : popUpTitle.value,
+    description : popUpContent.value
+  }, () => createNote(popUpTitle.value, popUpContent.value)),
   closeWindow();
 })
 

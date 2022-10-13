@@ -21,8 +21,8 @@ export const postData = async (url = '', data = {}, postHandler) => {
 export const getData = async (url = '', getHandler) => {
     const response = await fetch(url);
     try {
-        await response.json()
-        getHandler();
+        let userNotes = await response.json();
+        getHandler(userNotes);
     }
     catch (error) {
         console.log("error", error);
