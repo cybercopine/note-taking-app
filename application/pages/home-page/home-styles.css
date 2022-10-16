@@ -30,13 +30,15 @@ body {
 .note {
     position: relative;
     min-height: 200px;
+    /* max-height: 200px; */
     box-sizing: border-box;
-    padding: 17px;
+    padding: 20px;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
     color: rgb(174, 150, 137);
     background-color: #f0f0f0;
+    /* overflow-y: scroll; */
   }
 
 .note h1 {
@@ -156,6 +158,7 @@ body {
     resize: none;
   }
 
+  
   #title, #description {
     font-family: 'Poppins', Helvetica, sans-serif;
     font-size: 30px;

@@ -7,6 +7,7 @@ const signUpBtn = document.getElementById('sign-up-btn');
 const loginUsername = document.getElementById('login-username');
 const loginPassword = document.getElementById('login-password');
 const loginBtn = document.getElementById('login-btn');
+const checkBtn = document.getElementById('check-button');
 
 function signUpHandler() {
     postData('http://localhost:3000/register', {
@@ -15,7 +16,7 @@ function signUpHandler() {
         password: signUpPassword.value
 
     }, () => {
-        console.log("Hello World");
+       checkBtn.checked = true;
     })
 }
 
@@ -24,7 +25,7 @@ function loginHandler() {
         username: loginUsername.value,
         password: loginPassword.value
     }, () => {
-        location.replace("../home-page/home-page.html", '_self');
+        window.location.href = "../home-page/home-page.html";
     })
 };
 

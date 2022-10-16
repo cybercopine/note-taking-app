@@ -1,7 +1,7 @@
 export const postData = async (url = '', data = {}, postHandler) => {
     const response = await fetch(url, {
         method: 'POST',
-        credentials: 'same-origin',
+        credentials: 'include',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -19,7 +19,10 @@ export const postData = async (url = '', data = {}, postHandler) => {
   }
 
 export const getData = async (url = '', getHandler) => {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+        method: 'GET',
+        credentials: 'include'
+    });
     try {
         let userNotes = await response.json();
         getHandler(userNotes);

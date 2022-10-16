@@ -1,19 +1,10 @@
 class Note {
-    username = ""
     title = ""
     description = ""
 
-    constructor(username, title, description) {
-        this.username = username;
+    constructor(title, description) {
         this.title = title;
         this.description = description;
-    }
-
-    getJson() {
-        let jsonObj = JSON.parse(JSON.stringify(this));
-        delete jsonObj['username'];
-
-        return jsonObj;
     }
 }
 
